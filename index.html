@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             text-align: center;
             display: flex;
             justify-content: center;
@@ -15,13 +15,14 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            position: relative;
         }
 
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             animation: fadeIn 2s ease-in-out;
             position: relative;
@@ -44,23 +45,6 @@
             animation: heartAnimation 1s infinite alternate;
         }
 
-        .flowers {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 50px;
-        }
-
-        .fireworks {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 50px;
-            animation: fireworksAnimation 1.5s infinite alternate;
-        }
-
         @keyframes heartAnimation {
             from { transform: scale(1); }
             to { transform: scale(1.2); }
@@ -71,27 +55,55 @@
             to { opacity: 1; }
         }
 
-        @keyframes fireworksAnimation {
-            from { transform: translateX(-50%) translateY(-10px) scale(1); }
-            to { transform: translateX(-50%) translateY(10px) scale(1.2); }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            box-shadow: 0 0 5px white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        .fireworks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Para la persona más especial del mundo ❤️</h1>
+        <h1>Para mi niña de ojos bonitos ❤️</h1>
         <p>Mi amor, cada día contigo es un regalo. Eres mi felicidad, mi paz y mi inspiración.</p>
+        <p>Desde el primer momento en que nuestras miradas se cruzaron, supe que algo especial estaba por suceder. No fue solo tu sonrisa lo que me cautivó, ni la dulzura en tu voz… fue la forma en la que, sin decir una sola palabra, mi alma reconoció a la tuya. Como si en algún rincón del universo, nuestras historias ya estuvieran entrelazadas desde siempre. </p>
+        <p>Cada día a tu lado es un regalo, una promesa cumplida del destino. No hay palabras suficientes para describir la paz que encuentro en tus abrazos, la alegría que me invade cuando escucho tu risa, ni la felicidad que siento simplemente al saber que existes. Eres mi hogar, mi refugio en los días grises y mi luz en las noches más oscuras. </p>
         <p>No hay palabras suficientes para expresar lo mucho que te amo. Gracias por ser tú. 💖</p>
-        <p>Desde el primer momento en que nuestras miradas se cruzaron, supe que algo especial estaba por suceder. No fue solo tu sonrisa lo que me cautivó, ni la dulzura en tu voz… fue la forma en la que, sin decir una sola palabra, mi alma reconoció a la tuya. Como si en algún rincón del universo, nuestras historias ya estuvieran entrelazadas desde siempre.</p>
-        <p>Cada día a tu lado es un regalo, una promesa cumplida del destino. No hay palabras suficientes para describir la paz que encuentro en tus abrazos, la alegría que me invade cuando escucho tu risa, ni la felicidad que siento simplemente al saber que existes. Eres mi hogar, mi refugio en los días grises y mi luz en las noches más oscuras.</p>
-        <p>No importa cuántos años pasen, seguiré mirándote con los mismos ojos llenos de amor con los que te vi por primera vez. Porque amarte no es solo un sentimiento, es una decisión que tomé y que seguiré tomando siempre.</p>
-        <p>Gracias por ser mi persona favorita en este mundo. Gracias por existir. Te amo con todo mi ser, hoy y siempre.</p>
         <div class="hearts">💘 💖 💞</div>
     </div>
     
-    <div class="flowers">🌸🌷🌼🌹🌺</div>
-    <div class="fireworks">🎆🎇✨</div>
+    <div class="stars"></div>
+    <canvas class="fireworks"></canvas>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -103,8 +115,73 @@
                 hearts.style.transform = `scale(${scale})`;
             }, 500);
         });
+
+        function createStars() {
+            const starsContainer = document.querySelector(".stars");
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement("span");
+                let size = Math.random() * 3;
+                let posX = Math.random() * window.innerWidth;
+                let posY = Math.random() * window.innerHeight;
+                star.style.width = size + "px";
+                star.style.height = size + "px";
+                star.style.top = posY + "px";
+                star.style.left = posX + "px";
+                star.style.animationDelay = Math.random() * 3 + "s";
+                starsContainer.appendChild(star);
+            }
+        }
+        createStars();
+
+        function createFireworks() {
+            const canvas = document.querySelector(".fireworks");
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const particles = [];
+
+            function Particle(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 5;
+                this.speedY = (Math.random() - 0.5) * 5;
+            }
+
+            function animateFireworks() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    let p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.size *= 0.95;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    if (p.size < 0.5) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+                requestAnimationFrame(animateFireworks);
+            }
+
+            function triggerFireworks() {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height / 2;
+                let colors = ["#ff4747", "#ffea47", "#47ff57", "#477fff", "#ff47c4"];
+                for (let i = 0; i < 50; i++) {
+                    particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+                }
+            }
+
+            setInterval(triggerFireworks, 1000);
+            animateFireworks();
+        }
+        createFireworks();
     </script>
 
 </body>
 </html>
-
