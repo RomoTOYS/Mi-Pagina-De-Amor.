@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
 
         .container {
@@ -21,8 +22,10 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            max-width: 600px;
             animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
@@ -31,12 +34,31 @@
 
         p {
             color: #333;
+            font-size: 18px;
+            margin: 10px 0;
         }
 
         .hearts {
             font-size: 40px;
             margin-top: 20px;
             animation: heartAnimation 1s infinite alternate;
+        }
+
+        .flowers {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            animation: fireworksAnimation 1.5s infinite alternate;
         }
 
         @keyframes heartAnimation {
@@ -48,6 +70,11 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @keyframes fireworksAnimation {
+            from { transform: translateX(-50%) translateY(-10px) scale(1); }
+            to { transform: translateX(-50%) translateY(10px) scale(1.2); }
+        }
     </style>
 </head>
 <body>
@@ -56,8 +83,15 @@
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Mi amor, cada día contigo es un regalo. Eres mi felicidad, mi paz y mi inspiración.</p>
         <p>No hay palabras suficientes para expresar lo mucho que te amo. Gracias por ser tú. 💖</p>
+        <p>Desde el primer momento en que nuestras miradas se cruzaron, supe que algo especial estaba por suceder. No fue solo tu sonrisa lo que me cautivó, ni la dulzura en tu voz… fue la forma en la que, sin decir una sola palabra, mi alma reconoció a la tuya. Como si en algún rincón del universo, nuestras historias ya estuvieran entrelazadas desde siempre.</p>
+        <p>Cada día a tu lado es un regalo, una promesa cumplida del destino. No hay palabras suficientes para describir la paz que encuentro en tus abrazos, la alegría que me invade cuando escucho tu risa, ni la felicidad que siento simplemente al saber que existes. Eres mi hogar, mi refugio en los días grises y mi luz en las noches más oscuras.</p>
+        <p>No importa cuántos años pasen, seguiré mirándote con los mismos ojos llenos de amor con los que te vi por primera vez. Porque amarte no es solo un sentimiento, es una decisión que tomé y que seguiré tomando siempre.</p>
+        <p>Gracias por ser mi persona favorita en este mundo. Gracias por existir. Te amo con todo mi ser, hoy y siempre.</p>
         <div class="hearts">💘 💖 💞</div>
     </div>
+    
+    <div class="flowers">🌸🌷🌼🌹🌺</div>
+    <div class="fireworks">🎆🎇✨</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -73,3 +107,4 @@
 
 </body>
 </html>
+
