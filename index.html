@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Amor 💜</title>
+    <title>Para Mi Amor ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap');
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #4b2f83; /* Fondo morado */
+            background: black;
             text-align: center;
             overflow: hidden;
             margin: 0;
@@ -51,7 +51,7 @@
         }
 
         .hidden {
-            display: none; /* Aseguramos que el mensaje esté oculto por defecto */
+            display: none !important; /* Aseguramos que el mensaje esté oculto por defecto */
         }
 
         .button {
@@ -83,7 +83,7 @@
         #message-container h1 {
             font-family: 'Sacramento', cursive;
             font-size: 50px;
-            color: #ffea47; /* Color amarillo para el texto */
+            color: #ffea47;
         }
 
         #message-container p {
@@ -104,7 +104,7 @@
     </div>
 
     <!-- Contenedor del mensaje que aparece después -->
-    <div id="message-container" class="container">
+    <div id="message-container" class="container hidden">
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
         <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
@@ -117,10 +117,14 @@
             
             // Mostramos el mensaje
             document.getElementById("message-container").classList.remove("hidden");
-
+            
             // Mostramos los fuegos artificiales (si los deseas)
             document.getElementById("fireworks").classList.remove("hidden");
+            
+            // Aquí puedes agregar la función de fuegos artificiales si lo necesitas.
+            // launchFireworks();
         }
     </script>
 </body>
 </html>
+
