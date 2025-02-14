@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Amor ❤️</title>
+    <title>Para Mi Amor 💜</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap');
 
         body {
             font-family: 'Arial', sans-serif;
-            background: black; /* Fondo negro */
+            background: #4b2f83; /* Fondo morado */
             text-align: center;
             overflow: hidden;
             margin: 0;
@@ -31,7 +31,6 @@
             animation: fadeIn 2s ease-in-out;
             width: 100%;
             text-align: center;
-            display: none; /* Inicialmente oculto */
         }
 
         .neon-text {
@@ -49,6 +48,10 @@
             to {
                 text-shadow: 0 0 30px #ff4b5c, 0 0 50px #ff1f3d;
             }
+        }
+
+        .hidden {
+            display: none; /* Aseguramos que el mensaje esté oculto por defecto */
         }
 
         .button {
@@ -89,11 +92,11 @@
             color: white;
             max-width: 600px;
         }
-
     </style>
 </head>
 <body>
-
+    <canvas id="fireworks" class="hidden"></canvas>
+    
     <!-- Contenedor de la pregunta -->
     <div id="question-container" class="container">
         <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
@@ -108,15 +111,16 @@
     </div>
 
     <script>
-        // Función que muestra el mensaje cuando se presiona el botón
         function showMessage() {
             // Ocultamos la pregunta
-            document.getElementById("question-container").style.display = "none";
+            document.getElementById("question-container").classList.add("hidden");
             
             // Mostramos el mensaje
-            document.getElementById("message-container").style.display = "block";
-        }
+            document.getElementById("message-container").classList.remove("hidden");
 
+            // Mostramos los fuegos artificiales (si los deseas)
+            document.getElementById("fireworks").classList.remove("hidden");
+        }
     </script>
 </body>
 </html>
