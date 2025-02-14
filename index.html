@@ -30,38 +30,65 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        h1 {
-            color: #ff4b5c;
+        .neon-text {
+            font-size: 24px;
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            animation: pulse 1.5s infinite alternate;
         }
 
-        p {
+        @keyframes pulse {
+            from {
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button {
+            background: #ff4b5c;
+            border: none;
+            padding: 15px 25px;
             font-size: 18px;
-            margin: 10px 0;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(255, 75, 92, 0.5);
+            transition: 0.3s;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+        .button:hover {
+            background: #ff1f3d;
         }
     </style>
 </head>
 <body>
-    <canvas id="fireworks"></canvas>
-    <div class="container">
+    <canvas id="fireworks" class="hidden"></canvas>
+    
+    <div id="question-container" class="container">
+        <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
+        <button class="button" onclick="showMessage()">¡Sí, quiero! 💘</button>
+    </div>
+
+    <div id="message-container" class="container hidden">
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Mi amor, cada día contigo es un regalo. Eres mi felicidad, mi paz y mi inspiración.</p>
         <p>No hay palabras suficientes para expresar lo mucho que te amo. Gracias por ser tú. 💖</p>
     </div>
 
     <script>
+        function showMessage() {
+            document.getElementById("question-container").classList.add("hidden");
+            document.getElementById("message-container").classList.remove("hidden");
+            document.getElementById("fireworks").classList.remove("hidden");
+            launchFireworks();
+        }
+
         const canvas = document.getElementById("fireworks");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -116,16 +143,15 @@
             requestAnimationFrame(animate);
         }
         
-        function launchFirework() {
-            let x = Math.random() * canvas.width;
-            let y = Math.random() * (canvas.height / 2);
-            let colors = ["#ff4747", "#ffea47", "#47ff57", "#477fff", "#ff47c4"];
-            fireworks.push(new Firework(x, y, colors[Math.floor(Math.random() * colors.length)]));
+        function launchFireworks() {
+            setInterval(() => {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * (canvas.height / 2);
+                let colors = ["#ff4747", "#ffea47", "#47ff57", "#477fff", "#ff47c4"];
+                fireworks.push(new Firework(x, y, colors[Math.floor(Math.random() * colors.length)]));
+            }, 1000);
+            animate();
         }
-        
-        setInterval(launchFirework, 1000);
-        animate();
     </script>
 </body>
 </html>
-
