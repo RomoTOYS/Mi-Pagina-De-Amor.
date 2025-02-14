@@ -72,7 +72,7 @@
         }
 
         #message-container {
-            display: flex;
+            display: none; /* Lo mantenemos oculto hasta que se presione el botón */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -102,7 +102,7 @@
         <button class="button" onclick="showMessage()">¡Sí, quiero! 💘</button>
     </div>
 
-    <div id="message-container" class="container hidden">
+    <div id="message-container" class="container">
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
         <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
@@ -118,5 +118,4 @@
     </script>
 </body>
 </html>
-
 
