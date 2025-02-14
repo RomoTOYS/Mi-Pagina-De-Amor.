@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Mi Amor ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap');
 
         body {
             font-family: 'Arial', sans-serif;
@@ -24,28 +23,28 @@
 
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
+            padding: 40px;
             border-radius: 20px;
-            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
-            max-width: 700px;
+            box-shadow: 0px 4px 25px rgba(255, 255, 255, 0.5);
+            max-width: 800px;
             backdrop-filter: blur(10px);
             animation: fadeIn 2s ease-in-out;
         }
 
         .neon-text {
-            font-size: 50px;
-            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            font-family: 'Parisienne', cursive;
             color: #ff4b5c;
-            text-shadow: 0 0 10px #ff4b5c, 0 0 20px #ff4b5c, 0 0 40px #ff1f3d;
+            text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c, 0 0 50px #ff1f3d;
             animation: pulse 1.5s infinite alternate;
         }
 
         @keyframes pulse {
             from {
-                text-shadow: 0 0 10px #ff4b5c, 0 0 20px #ff4b5c;
+                text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c;
             }
             to {
-                text-shadow: 0 0 20px #ff4b5c, 0 0 40px #ff1f3d;
+                text-shadow: 0 0 30px #ff4b5c, 0 0 50px #ff1f3d;
             }
         }
 
@@ -56,13 +55,13 @@
         .button {
             background: #ff4b5c;
             border: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-family: 'Pacifico', cursive;
+            padding: 18px 36px;
+            font-size: 24px;
+            font-family: 'Sacramento', cursive;
             color: white;
-            border-radius: 15px;
+            border-radius: 20px;
             cursor: pointer;
-            box-shadow: 0px 4px 15px rgba(255, 75, 92, 0.7);
+            box-shadow: 0px 5px 20px rgba(255, 75, 92, 0.9);
             transition: 0.3s;
         }
 
@@ -71,14 +70,14 @@
         }
 
         #message-container h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 40px;
+            font-family: 'Sacramento', cursive;
+            font-size: 50px;
             color: #ffea47;
         }
 
         #message-container p {
-            font-family: 'Pacifico', cursive;
-            font-size: 20px;
+            font-family: 'Parisienne', cursive;
+            font-size: 28px;
             color: white;
         }
     </style>
@@ -93,8 +92,8 @@
 
     <div id="message-container" class="container hidden">
         <h1>Para la persona más especial del mundo ❤️</h1>
-        <p>Mi amor, cada día contigo es un regalo. Eres mi felicidad, mi paz y mi inspiración.</p>
-        <p>No hay palabras suficientes para expresar lo mucho que te amo. Gracias por ser tú. 💖</p>
+        <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
+        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
     </div>
 
     <script>
@@ -117,13 +116,13 @@
             this.y = y;
             this.color = color;
             this.particles = [];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 60; i++) {
                 this.particles.push({
                     x: x,
                     y: y,
-                    speedX: (Math.random() - 0.5) * 5,
-                    speedY: (Math.random() - 0.5) * 5,
-                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 6,
+                    speedY: (Math.random() - 0.5) * 6,
+                    size: Math.random() * 4 + 1,
                     alpha: 1,
                 });
             }
@@ -171,3 +170,4 @@
     </script>
 </body>
 </html>
+
