@@ -72,7 +72,7 @@
         }
 
         #message-container {
-            display: none; /* Lo mantenemos oculto hasta que se presione el botón */
+            display: none; /* Aquí se asegura que el contenedor de mensaje esté oculto al principio */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -97,12 +97,14 @@
 <body>
     <canvas id="fireworks" class="hidden"></canvas>
     
+    <!-- Contenedor de la pregunta -->
     <div id="question-container" class="container">
         <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
         <button class="button" onclick="showMessage()">¡Sí, quiero! 💘</button>
     </div>
 
-    <div id="message-container" class="container">
+    <!-- Contenedor del mensaje que aparece después -->
+    <div id="message-container" class="container hidden">
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
         <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
@@ -110,12 +112,12 @@
 
     <script>
         function showMessage() {
+            // Ocultamos la pregunta y mostramos el mensaje
             document.getElementById("question-container").classList.add("hidden");
             document.getElementById("message-container").classList.remove("hidden");
             document.getElementById("fireworks").classList.remove("hidden");
-            launchFireworks();
+            launchFireworks(); // Aquí puedes agregar una función para los fuegos artificiales si lo deseas
         }
     </script>
 </body>
 </html>
-
