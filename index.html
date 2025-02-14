@@ -51,10 +51,6 @@
             }
         }
 
-        .hidden {
-            display: none !important; /* Aseguramos que el mensaje esté oculto por defecto */
-        }
-
         .button {
             background: #ff4b5c;
             border: none;
@@ -94,30 +90,33 @@
             max-width: 600px;
         }
 
-        /* Estrellitas flotantes */
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            background: white;
-            opacity: 0.6;
-            animation: starMove 10s infinite linear;
-        }
-
-        @keyframes starMove {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(1000px, 1000px);
-            }
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Estrellas flotantes -->
-    <div id="stars"></div>
-
     <!-- Contenedor de la pregunta -->
-    <div id="question-container
+    <div id="question-container" class="container">
+        <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
+        <button class="button" onclick="showMessage()">¡Sí, quiero! 💘</button>
+    </div>
+
+    <!-- Contenedor del mensaje que aparece después -->
+    <div id="message-container" class="container">
+        <h1>Para la persona más especial del mundo ❤️</h1>
+        <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
+        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
+    </div>
+
+    <script>
+        // Función que muestra el mensaje cuando se presiona el botón
+        function showMessage() {
+            // Ocultamos la pregunta
+            document.getElementById("question-container").style.display = "none";
+            
+            // Mostramos el mensaje
+            document.getElementById("message-container").style.display = "block";
+        }
+
+    </script>
+</body>
+</html>
