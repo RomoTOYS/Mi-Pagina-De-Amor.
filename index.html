@@ -51,7 +51,7 @@
         }
 
         .hidden {
-            display: none;
+            display: none !important; /* Esto asegurará que se mantenga oculto */
         }
 
         .button {
@@ -72,7 +72,7 @@
         }
 
         #message-container {
-            display: none; /* Asegura que el contenedor de mensaje esté oculto al principio */
+            display: none; /* Inicialmente oculto */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -112,11 +112,17 @@
 
     <script>
         function showMessage() {
-            // Ocultamos la pregunta y mostramos el mensaje
+            // Ocultamos la pregunta
             document.getElementById("question-container").classList.add("hidden");
-            document.getElementById("message-container").classList.remove("hidden");  // Aseguramos que el mensaje se muestre
+            
+            // Mostramos el mensaje
+            document.getElementById("message-container").classList.remove("hidden");
+            
+            // Mostramos los fuegos artificiales (si los deseas)
             document.getElementById("fireworks").classList.remove("hidden");
-            launchFireworks(); // Aquí puedes agregar una función para los fuegos artificiales si lo deseas
+            
+            // Aquí puedes agregar la función de fuegos artificiales si lo necesitas.
+            // launchFireworks();
         }
     </script>
 </body>
