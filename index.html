@@ -10,14 +10,15 @@
         body {
             font-family: 'Arial', sans-serif;
             background: black;
-            color: white;
+            text-align: center;
             overflow: hidden;
             margin: 0;
+            position: relative;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden; /* Evita el scroll horizontal por las animaciones */
+            color: white;
         }
 
         .container {
@@ -28,9 +29,6 @@
             max-width: 800px;
             backdrop-filter: blur(10px);
             animation: fadeIn 2s ease-in-out;
-            width: 90%;
-            text-align: center;
-            position: relative; /* Para posicionar las animaciones */
         }
 
         .neon-text {
@@ -50,7 +48,7 @@
             }
         }
 
-        .oculto {
+        .hidden {
             display: none;
         }
 
@@ -72,16 +70,20 @@
         }
 
         #message-container {
+            display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             text-align: center;
-            margin-top: 20px;
+            height: 100vh;
+            width: 100vw;
         }
 
         #message-container h1 {
             font-family: 'Sacramento', cursive;
             font-size: 50px;
             color: #ffea47;
+            margin-bottom: 20px;
         }
 
         #message-container p {
@@ -89,84 +91,30 @@
             font-size: 28px;
             color: white;
             max-width: 600px;
-        }
-
-        /* Estrellas */
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background-color: white;
-            border-radius: 50%;
-            animation: twinkle 1s linear infinite;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* Estrellas fugaces */
-        .shooting-star {
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
-            animation: shoot 3s linear infinite;
-        }
-
-        @keyframes shoot {
-            0% { transform: translateX(-150px) rotate(45deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(150vw) rotate(45deg); opacity: 0; }
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <canvas id="fireworks" class="oculto"></canvas>
-
+    <canvas id="fireworks" class="hidden"></canvas>
+    
     <div id="question-container" class="container">
-        <h1 class="neon-text">❤️¿Quieres ser mi San Valentín?❤️ </h1>
-        <button class="button" onclick="showMessage()">❤️¡Sí, quiero!❤️ </button>
+        <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
+        <button class="button" onclick="showMessage()">¡Sí, quiero! 💘</button>
     </div>
 
-    <div id="message-container" class="container oculto">
-        <h1>❤️Para la niña más bonita ❤️</h1>
-        <p>Eres mi luz y eres mi sol, agradezo tu compañia y te ofrezco todo mi amor.</p>
-        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía a ti, gracias por hacerme feliz yo te prometo siempre escogerte a ti, hasta el fin yo dare todo de mi por verte sonreir. </p>
-        <p> ❤️ Te amo y adoro, tu eres mi mayor tesoro, yo te ofrezco todo pero porfavor no me dejes solo. ❤️</p>
+    <div id="message-container" class="container hidden">
+        <h1>Para la persona más especial del mundo ❤️</h1>
+        <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
+        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
     </div>
 
     <script>
         function showMessage() {
-            document.getElementById("question-container").classList.add("oculto");
-            document.getElementById("message-container").classList.remove("oculto");
-            document.getElementById("fireworks").classList.remove("oculto");
-
-            createStars();
-            createShootingStars();
-        }
-
-        function createStars() {
-            for (let i = 0; i < 100; i++) {
-                let star = document.createElement('div');
-                star.classList.add('star');
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(star);
-            }
-        }
-
-        function createShootingStars() {
-            for (let i = 0; i < 5; i++) {
-                let shootingStar = document.createElement('div');
-                shootingStar.classList.add('shooting-star');
-                shootingStar.style.top = Math.random() * 100 + 'vh';
-                shootingStar.style.animationDelay = Math.random() * 5 + 's';
-                document.body.appendChild(shootingStar);
-            }
+            document.getElementById("question-container").classList.add("hidden");
+            document.getElementById("message-container").classList.remove("hidden");
+            document.getElementById("fireworks").classList.remove("hidden");
+            launchFireworks();
         }
     </script>
 </body>
