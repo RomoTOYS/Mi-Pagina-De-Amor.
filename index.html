@@ -72,12 +72,12 @@
         }
 
         #message-container {
-            display: none; /* Aquí se asegura que el contenedor de mensaje esté oculto al principio */
+            display: none; /* Asegura que el contenedor de mensaje esté oculto al principio */
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-top: 20px; /* Asegura que no esté pegado al borde superior */
+            margin-top: 20px;
         }
 
         #message-container h1 {
@@ -114,7 +114,7 @@
         function showMessage() {
             // Ocultamos la pregunta y mostramos el mensaje
             document.getElementById("question-container").classList.add("hidden");
-            document.getElementById("message-container").classList.remove("hidden");
+            document.getElementById("message-container").classList.remove("hidden");  // Aseguramos que el mensaje se muestre
             document.getElementById("fireworks").classList.remove("hidden");
             launchFireworks(); // Aquí puedes agregar una función para los fuegos artificiales si lo deseas
         }
