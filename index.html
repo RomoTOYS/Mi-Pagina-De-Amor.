@@ -69,6 +69,14 @@
             background: #ff1f3d;
         }
 
+        #message-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
         #message-container h1 {
             font-family: 'Sacramento', cursive;
             font-size: 50px;
@@ -79,6 +87,7 @@
             font-family: 'Parisienne', cursive;
             font-size: 28px;
             color: white;
+            max-width: 600px;
         }
     </style>
 </head>
@@ -102,70 +111,6 @@
             document.getElementById("message-container").classList.remove("hidden");
             document.getElementById("fireworks").classList.remove("hidden");
             launchFireworks();
-        }
-
-        const canvas = document.getElementById("fireworks");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        let fireworks = [];
-        
-        function Firework(x, y, color) {
-            this.x = x;
-            this.y = y;
-            this.color = color;
-            this.particles = [];
-            for (let i = 0; i < 60; i++) {
-                this.particles.push({
-                    x: x,
-                    y: y,
-                    speedX: (Math.random() - 0.5) * 6,
-                    speedY: (Math.random() - 0.5) * 6,
-                    size: Math.random() * 4 + 1,
-                    alpha: 1,
-                });
-            }
-        }
-
-        Firework.prototype.update = function () {
-            this.particles.forEach(p => {
-                p.x += p.speedX;
-                p.y += p.speedY;
-                p.alpha -= 0.02;
-            });
-        };
-
-        Firework.prototype.draw = function () {
-            this.particles.forEach(p => {
-                ctx.globalAlpha = p.alpha;
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-        };
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            fireworks.forEach((fw, index) => {
-                fw.update();
-                fw.draw();
-                if (fw.particles[0].alpha <= 0) {
-                    fireworks.splice(index, 1);
-                }
-            });
-            requestAnimationFrame(animate);
-        }
-        
-        function launchFireworks() {
-            setInterval(() => {
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * (canvas.height / 2);
-                let colors = ["#ff4747", "#ffea47", "#47ff57", "#477fff", "#ff47c4"];
-                fireworks.push(new Firework(x, y, colors[Math.floor(Math.random() * colors.length)]));
-            }, 1000);
-            animate();
         }
     </script>
 </body>
