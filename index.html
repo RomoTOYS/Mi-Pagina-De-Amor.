@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Amor ❤️</title>
+    <title>Para Mi Amor 💜</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap');
 
         body {
             font-family: 'Arial', sans-serif;
-            background: black;
+            background: #4b2f83; /* Fondo morado */
             text-align: center;
             overflow: hidden;
             margin: 0;
@@ -51,7 +51,7 @@
         }
 
         .hidden {
-            display: none !important; /* Esto asegurará que se mantenga oculto */
+            display: none !important; /* Aseguramos que el mensaje esté oculto por defecto */
         }
 
         .button {
@@ -83,7 +83,7 @@
         #message-container h1 {
             font-family: 'Sacramento', cursive;
             font-size: 50px;
-            color: #ffea47;
+            color: #ffea47; /* Color amarillo para el texto */
         }
 
         #message-container p {
@@ -92,11 +92,32 @@
             color: white;
             max-width: 600px;
         }
+
+        /* Efecto de estrellas flotantes */
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.6;
+            animation: starMove 10s infinite linear;
+        }
+
+        @keyframes starMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(1000px, 1000px);
+            }
+        }
+
     </style>
 </head>
 <body>
-    <canvas id="fireworks" class="hidden"></canvas>
-    
+
+    <!-- Fuegos artificiales y estrellitas flotantes -->
+    <div id="stars"></div>
+
     <!-- Contenedor de la pregunta -->
     <div id="question-container" class="container">
         <h1 class="neon-text">¿Quieres ser mi San Valentín? 💖</h1>
@@ -104,25 +125,38 @@
     </div>
 
     <!-- Contenedor del mensaje que aparece después -->
-    <div id="message-container" class="container hidden">
+    <div id="message-container" class="container">
         <h1>Para la persona más especial del mundo ❤️</h1>
         <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
         <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. 💖</p>
     </div>
 
     <script>
+        // Función que muestra el mensaje cuando se presiona el botón
         function showMessage() {
             // Ocultamos la pregunta
             document.getElementById("question-container").classList.add("hidden");
             
             // Mostramos el mensaje
             document.getElementById("message-container").classList.remove("hidden");
-            
-            // Mostramos los fuegos artificiales (si los deseas)
-            document.getElementById("fireworks").classList.remove("hidden");
-            
-            // Aquí puedes agregar la función de fuegos artificiales si lo necesitas.
-            // launchFireworks();
+
+            // Mostramos las estrellitas de fondo
+            generateStars();
+        }
+
+        // Función para generar estrellitas animadas
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 5 + 2}px`;
+                star.style.height = star.style.width;
+                star.style.top = `${Math.random() * window.innerHeight}px`;
+                star.style.left = `${Math.random() * window.innerWidth}px`;
+                star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                starsContainer.appendChild(star);
+            }
         }
     </script>
 </body>
