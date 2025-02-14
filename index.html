@@ -1,1 +1,172 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Para Mi Amor ❤️</title> <style> @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap'); cuerpo { familia de fuentes: 'Arial', sans-serif; fondo: negro; color: blanco; desbordamiento: oculto; margen: 0; visualización: flex; justificación-contenido: centro; alineamiento-elementos: centro; altura mínima: 100vh; desbordamiento-x: oculto; /* Evita el desplazamiento horizontal por las animaciones */ } .container { background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 20px; box-shadow: 0px 4px 25px rgba(255, 255, 255, 0.5); max-width: 800px; background-filter: blur(10px); animation: fadeIn 2s ease-in-out; width: 90%; text-align: center; position: relative; /* Para posicionar las animaciones */ } .neon-text { font-size: 60px; font-family: 'Parisienne', cursive; color: #ff4b5c; text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c, 0 0 50px #ff1f3d; animación: pulso 1.5s infinito alternativo; } @keyframes pulso { desde { text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c; } hasta { text-shadow: 0 0 30px #ff4b5c, 0 0 50px #ff1f3d; } } .oculto { display: none; } .button { background: #ff4b5c; border: none; padding: 18px 36px; font-size: 24px; font-family: 'Sacramento', cursive; color: blanco; border-radius: 20px; cursor: puntero; box-shadow: 0px 5px 20px rgba(255, 75, 92, 0.9); transition: 0.3s; } .button:hover { background: #ff1f3d; } #contenedor-de-mensajes { flex-direction: column; align-items: center; text-align: center; margin-top: 20px; } #contenedor-de-mensajes h1 { font-family: 'Sacramento', cursive; font-size: 50px; color: #ffea47; } #contenedor-de-mensajes p { font-family: 'Parisienne', cursive; font-size: 28px; color: white; max-width: 600px; } /* Estrellas */ .star { position: absolute; width:2px; altura: 2px; color de fondo: blanco; radio del borde: 50%; animación: twinkle 1s lineal infinito; } @keyframes twinkle { 0% { opacidad: 0; } 50% { opacidad: 1; } 100% { opacidad: 0; } } /* Estrellas fugaces */ .shooting-star { posición: absoluta; ancho: 100px; altura: 2px; fondo: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparente); animación: shoot 3s lineal infinito; } @keyframes shoot { 0% { transformación: translateX(-150px) rotar(45deg); opacidad: 0; } 50% { opacidad: 1; } 100% { transformar: translateX(150vw) rotar(45deg); opacidad: 0; } } </style> </head> <body> <canvas id="fireworks" class="oculto"></canvas> <div id="question-container" class="container"> <h1 class="neon-text">❤️¿Quieres ser mi San Valentín?❤️ </h1> <button class="button" onclick="showMessage()">❤️¡Sí, quiero!❤️ </button> </div> <div id="message-container" class="container oculto"> <h1>❤️Para la niña más bonita ❤️</h1> <p>Eres mi luz y eres mi sol, agradezo tu compañía y te ofrezco todo mi amor.</p> <p>Desde el momento en que te conocí, supe que mi corazón te pertenece a ti, gracias por hacerme feliz yo te prometo siempre escogerte a ti, hasta el fin yo dare todo de mi por verte sonreir. </p> <p> ❤️ Te amo y adoro, tu eres mi mayor tesoro, yo te ofrezco todo pero por favor no me dejes solo. ❤️</p> </div> <script> function showMessage() { document.getElementById("question-container").classList.add("oculto"); document.getElementById("contenedor-de-mensajes").classList.remove("oculto"); document.getElementById("fuegos artificiales").classList.remove("oculto"); crearEstrellas(); crearEstrellasDisparadoras(); } function createStars() { for (let i = 0; i < 100; i++) { let star = document.createElement('div'); estrella.classList.add('estrella'); estrella.estilo.izquierda = Math.random() * 100 + 'vw'; estrella.estilo.arriba = Math.random() * 100 + 'vh'; estrella.estilo.animationDelay = Math.random() * 2 + 's'; documento.cuerpo.appendChild(estrella); } } función crearEstrellasDisparadoras() { para (dejar i = 0; i < 5; i++) { dejar EstrellaDisparadora = documento.createElement('div'); shootingStar.classList.add('estrella-fugaz'); shootingStar.style.top = Math.random() * 100 + 'vh'; shootingStar.style.animationDelay = Math.random() * 5 + 's'; document.body.appendChild(shootingStar); } } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: black;
+            color: white;
+            overflow: hidden;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Evita el scroll horizontal por las animaciones */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 25px rgba(255, 255, 255, 0.5);
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 2s ease-in-out;
+            width: 90%;
+            text-align: center;
+            position: relative; /* Para posicionar las animaciones */
+        }
+
+        .neon-text {
+            font-size: 60px;
+            font-family: 'Parisienne', cursive;
+            color: #ff4b5c;
+            text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c, 0 0 50px #ff1f3d;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c;
+            }
+            to {
+                text-shadow: 0 0 30px #ff4b5c, 0 0 50px #ff1f3d;
+            }
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .button {
+            background: #ff4b5c;
+            border: none;
+            padding: 18px 36px;
+            font-size: 24px;
+            font-family: 'Sacramento', cursive;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0px 5px 20px rgba(255, 75, 92, 0.9);
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ff1f3d;
+        }
+
+        #message-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #message-container h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 50px;
+            color: #ffea47;
+        }
+
+        #message-container p {
+            font-family: 'Parisienne', cursive;
+            font-size: 28px;
+            color: white;
+            max-width: 600px;
+        }
+
+        /* Estrellas */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 1s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Estrellas fugaces */
+        .shooting-star {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
+            animation: shoot 3s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% { transform: translateX(-150px) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(150vw) rotate(45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="fireworks" class="oculto"></canvas>
+
+    <div id="question-container" class="container">
+        <h1 class="neon-text">¿Quieres ser mi San Valentín? </h1>
+        <button class="button" onclick="showMessage()">¡Sí, quiero! </button>
+    </div>
+
+    <div id="message-container" class="container oculto">
+        <h1>Para la persona más especial del mundo ❤️</h1>
+        <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
+        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre. </p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("question-container").classList.add("oculto");
+            document.getElementById("message-container").classList.remove("oculto");
+            document.getElementById("fireworks").classList.remove("oculto");
+
+            createStars();
+            createShootingStars();
+        }
+
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(star);
+            }
+        }
+
+        function createShootingStars() {
+            for (let i = 0; i < 5; i++) {
+                let shootingStar = document.createElement('div');
+                shootingStar.classList.add('shooting-star');
+                shootingStar.style.top = Math.random() * 100 + 'vh';
+                shootingStar.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(shootingStar);
+            }
+        }
+    </script>
+</body>
+</html>
