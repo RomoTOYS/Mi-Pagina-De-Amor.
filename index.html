@@ -10,15 +10,13 @@
         body {
             font-family: 'Arial', sans-serif;
             background: black;
-            text-align: center;
-            overflow: hidden;
-            margin: 0;
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             color: white;
+            overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            min-height: 100vh; /* Asegura que el body ocupa toda la pantalla */
         }
 
         .container {
@@ -29,8 +27,13 @@
             max-width: 800px;
             backdrop-filter: blur(10px);
             animation: fadeIn 2s ease-in-out;
-            width: 100%;
+            width: 90%; /* Ajusta el ancho para pantallas más pequeñas */
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%; /* Opcional: Si quieres que el contenedor ocupe toda la altura del body */
         }
 
         .neon-text {
@@ -50,7 +53,7 @@
             }
         }
 
-        .oculto { /* Nueva clase para ocultar */
+        .oculto {
             display: none;
         }
 
@@ -73,7 +76,6 @@
 
         #message-container {
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
             margin-top: 20px;
@@ -97,15 +99,16 @@
     <canvas id="fireworks" class="oculto"></canvas>
 
     <div id="question-container" class="container">
-        <h1 class="neon-text">¿Quieres ser mi San Valentín? </h1>
-        <button class="button" onclick="showMessage()">¡Sí, quiero ❤️! </button>
+        <h1 class="neon-text">❤️¿Quieres ser mi San Valentín?❤️ </h1>
+        <button class="button" onclick="showMessage()">¡Sí, quiero!❤️ </button>
     </div>
 
     <div id="message-container" class="container oculto">
-        <h1>Para la persona más especial del mundo ❤️</h1>
+        <h1>Para la persona niña mas bonita del mundo ❤️</h1>
         <p>Eres mi luz, mi inspiración y la razón de cada uno de mis días felices.</p>
-        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre, prometo estar siempre contigo amandote y cuidandote. </p>
-        <p>Te amo mi niña de ojos bonitos</p>
+        <p>Desde el momento en que te conocí, supe que mi corazón te pertenecía para siempre es por eso que yo promegto amarte y cuidarte sobre todas las coas, porque te amo y soy verdaderamente feliz cntigo. </p>
+        <p> Te amo mi niña de bonitos ojos, porfavor nunca lo olvides</p>
+        <p>❤️</p>
     </div>
 
     <script>
